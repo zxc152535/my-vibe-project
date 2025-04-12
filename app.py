@@ -6,17 +6,17 @@ from datetime import datetime
 from weather_service import WeatherService
 from utils import get_weather_icon, get_weather_color, celsius_to_fahrenheit
 
-password = st.text_input("請輸入密碼進入系統", type="password")
-if password != "12345":
-    st.warning("密碼錯誤或尚未輸入，請聯絡作者")
-    st.stop()
-
 # Set page configuration
 st.set_page_config(
     page_title="IAN的天氣預報應用",
     page_icon="🌤️",
     layout="wide"
 )
+
+password = st.text_input("請輸入密碼進入系統", type="password")
+if password != "12345":
+    st.warning("密碼錯誤或尚未輸入，請聯絡作者")
+    st.stop()
 
 # Initialize weather service
 api_key = os.getenv("OPENWEATHERMAP_API_KEY", "")
